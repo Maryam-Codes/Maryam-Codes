@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="350" height="195" viewBox="0 0 350 195">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#e879f9;stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @keyframes growBar{from{width:0}to{width:var(--w)}}
+    .card{animation:fadeIn 0.5s ease both}
+    .bar{animation:growBar 1s ease both;height:8;rx:4}
+    .b1{animation-delay:0.3s;--w:160px} .b2{animation-delay:0.45s;--w:100px}
+    .b3{animation-delay:0.6s;--w:75px} .b4{animation-delay:0.75s;--w:55px}
+    .b5{animation-delay:0.9s;--w:40px}
+    .label{opacity:0;animation:fadeIn 0.4s ease both}
+    .l1{animation-delay:0.2s} .l2{animation-delay:0.35s} .l3{animation-delay:0.5s}
+    .l4{animation-delay:0.65s} .l5{animation-delay:0.8s}
+  </style>
+  <!-- Card -->
+  <rect class="card" x="0.5" y="0.5" width="349" height="194" rx="10" fill="#170e28" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="0.5" y="0.5" width="349" height="194" rx="10" fill="url(#grad)" opacity="0.3"/>
+  <!-- Title -->
+  <text x="25" y="35" fill="#c084fc" font-family="'Segoe UI',sans-serif" font-weight="600" font-size="16">Most Used Languages</text>
+  <!-- Python -->
+  <text class="label l1" x="25" y="65" fill="#d8b4fe" font-family="'Segoe UI',sans-serif" font-size="12">Python</text>
+  <text class="label l1" x="310" y="65" fill="#b794d4" font-family="'Segoe UI',sans-serif" font-size="11" text-anchor="end">45.2%</text>
+  <rect x="25" y="70" width="300" height="8" rx="4" fill="#2d1b4e"/>
+  <rect class="bar b1" x="25" y="70" rx="4" fill="#c084fc" width="0" height="8"/>
+  <!-- JavaScript -->
+  <text class="label l2" x="25" y="98" fill="#d8b4fe" font-family="'Segoe UI',sans-serif" font-size="12">JavaScript</text>
+  <text class="label l2" x="310" y="98" fill="#b794d4" font-family="'Segoe UI',sans-serif" font-size="11" text-anchor="end">22.1%</text>
+  <rect x="25" y="103" width="300" height="8" rx="4" fill="#2d1b4e"/>
+  <rect class="bar b2" x="25" y="103" rx="4" fill="#e879f9" width="0" height="8"/>
+  <!-- YAML -->
+  <text class="label l3" x="25" y="131" fill="#d8b4fe" font-family="'Segoe UI',sans-serif" font-size="12">YAML</text>
+  <text class="label l3" x="310" y="131" fill="#b794d4" font-family="'Segoe UI',sans-serif" font-size="11" text-anchor="end">16.5%</text>
+  <rect x="25" y="136" width="300" height="8" rx="4" fill="#2d1b4e"/>
+  <rect class="bar b3" x="25" y="136" rx="4" fill="#8b5cf6" width="0" height="8"/>
+  <!-- JSON -->
+  <text class="label l4" x="25" y="161" fill="#d8b4fe" font-family="'Segoe UI',sans-serif" font-size="12">JSON</text>
+  <text class="label l4" x="310" y="161" fill="#b794d4" font-family="'Segoe UI',sans-serif" font-size="11" text-anchor="end">9.8%</text>
+  <rect x="25" y="166" width="300" height="8" rx="4" fill="#2d1b4e"/>
+  <rect class="bar b4" x="25" y="166" rx="4" fill="#d8b4fe" width="0" height="8"/>
+  <!-- Shell -->
+  <text class="label l5" x="25" y="188" fill="#d8b4fe" font-family="'Segoe UI',sans-serif" font-size="12">Shell</text>
+  <text class="label l5" x="310" y="188" fill="#b794d4" font-family="'Segoe UI',sans-serif" font-size="11" text-anchor="end">6.4%</text>
+  <rect x="25" y="180" width="300" height="8" rx="4" fill="#2d1b4e"/>
+  <rect class="bar b5" x="25" y="180" rx="4" fill="#f0abfc" width="0" height="8"/>
+</svg>

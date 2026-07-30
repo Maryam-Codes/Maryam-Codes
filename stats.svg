@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="495" height="195" viewBox="0 0 495 195">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.4"/>
+      <stop offset="100%" style="stop-color:#e879f9;stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+  <style>
+    @keyframes fadeIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+    @keyframes rankFill { from{stroke-dashoffset:251} to{stroke-dashoffset:80} }
+    @keyframes pulse { 0%,100%{opacity:0.6} 50%{opacity:1} }
+    .card{animation:fadeIn 0.6s ease both}
+    .stat{opacity:0;animation:fadeIn 0.5s ease both}
+    .s1{animation-delay:0.3s} .s2{animation-delay:0.45s} .s3{animation-delay:0.6s}
+    .s4{animation-delay:0.75s} .s5{animation-delay:0.9s}
+    .rank-circle{animation:rankFill 1.5s ease 0.4s both}
+    .rank-text{animation:pulse 2s ease infinite}
+  </style>
+  <!-- Card background -->
+  <rect class="card" x="0.5" y="0.5" width="494" height="194" rx="10" fill="#170e28" stroke="#8b5cf6" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="0.5" y="0.5" width="494" height="194" rx="10" fill="url(#grad)" opacity="0.3"/>
+  <!-- Title -->
+  <text x="25" y="35" fill="#c084fc" font-family="'Segoe UI',sans-serif" font-weight="600" font-size="16">Maryam's GitHub Stats</text>
+  <!-- Rank circle -->
+  <g transform="translate(400,105)">
+    <circle cx="0" cy="0" r="40" fill="none" stroke="#2d1b4e" stroke-width="6"/>
+    <circle class="rank-circle" cx="0" cy="0" r="40" fill="none" stroke="#c084fc" stroke-width="6" stroke-linecap="round" stroke-dasharray="251" stroke-dashoffset="80" transform="rotate(-90)"/>
+    <text class="rank-text" x="0" y="3" fill="#e879f9" font-family="'Segoe UI',sans-serif" font-weight="700" font-size="26" text-anchor="middle" dominant-baseline="middle">B+</text>
+  </g>
+  <!-- Stats -->
+  <g class="stat s1" transform="translate(25,65)">
+    <circle cx="6" cy="6" r="4" fill="#c084fc"/>
+    <text x="18" y="10" fill="#d8b4fe" font-family="'Segoe UI',sans-serif" font-size="13">Total Stars Earned:</text>
+    <text x="170" y="10" fill="#f0e6ff" font-family="'Segoe UI',sans-serif" font-weight="700" font-size="13">12</text>
+  </g>
+  <g class="stat s2" transform="translate(25,92)">
+    <circle cx="6" cy="6" r="4" fill="#e879f9"/>
+    <text x="18" y="10" fill="#d8b4fe" font-family="'Segoe UI',sans-serif" font-size="13">Total Commits (2025):</text>
+    <text x="185" y="10" fill="#f0e6ff" font-family="'Segoe UI',sans-serif" font-weight="700" font-size="13">247</text>
+  </g>
+  <g class="stat s3" transform="translate(25,119)">
+    <circle cx="6" cy="6" r="4" fill="#8b5cf6"/>
+    <text x="18" y="10" fill="#d8b4fe" font-family="'Segoe UI',sans-serif" font-size="13">Total PRs:</text>
+    <text x="100" y="10" fill="#f0e6ff" font-family="'Segoe UI',sans-serif" font-weight="700" font-size="13">18</text>
+  </g>
+  <g class="stat s4" transform="translate(25,146)">
+    <circle cx="6" cy="6" r="4" fill="#d8b4fe"/>
+    <text x="18" y="10" fill="#d8b4fe" font-family="'Segoe UI',sans-serif" font-size="13">Total Issues:</text>
+    <text x="110" y="10" fill="#f0e6ff" font-family="'Segoe UI',sans-serif" font-weight="700" font-size="13">5</text>
+  </g>
+  <g class="stat s5" transform="translate(25,173)">
+    <circle cx="6" cy="6" r="4" fill="#f0abfc"/>
+    <text x="18" y="10" fill="#d8b4fe" font-family="'Segoe UI',sans-serif" font-size="13">Contributed to:</text>
+    <text x="125" y="10" fill="#f0e6ff" font-family="'Segoe UI',sans-serif" font-weight="700" font-size="13">3</text>
+  </g>
+</svg>

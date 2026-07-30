@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="330" height="520" viewBox="0 0 330 520">
+  <defs>
+    <linearGradient id="strap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c3aed"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e0a38"/>
+      <stop offset="100%" stop-color="#0d0117"/>
+    </linearGradient>
+    <linearGradient id="holoShine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="transparent"/>
+      <stop offset="40%" stop-color="transparent"/>
+      <stop offset="50%" stop-color="rgba(192,132,252,0.25)"/>
+      <stop offset="60%" stop-color="transparent"/>
+      <stop offset="100%" stop-color="transparent"/>
+      <animateTransform attributeName="gradientTransform" type="translate" from="-1 -1" to="1 1" dur="3s" repeatCount="indefinite"/>
+    </linearGradient>
+    <linearGradient id="avatarGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#c084fc"/>
+      <stop offset="50%" stop-color="#e879f9"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <filter id="softGlow"><feGaussianBlur stdDeviation="6" result="g"/><feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <clipPath id="avatarClip"><circle cx="165" cy="270" r="42"/></clipPath>
+  </defs>
+  <style>
+    @keyframes swing {
+      0%{transform:rotate(8deg)}
+      10%{transform:rotate(-6deg)}
+      20%{transform:rotate(4deg)}
+      30%{transform:rotate(-3deg)}
+      40%{transform:rotate(2deg)}
+      50%{transform:rotate(-1.5deg)}
+      60%{transform:rotate(1deg)}
+      70%{transform:rotate(-0.5deg)}
+      80%{transform:rotate(0.3deg)}
+      90%{transform:rotate(-0.2deg)}
+      100%{transform:rotate(0deg)}
+    }
+    @keyframes gentleSway {
+      0%,100%{transform:rotate(-0.8deg)}
+      50%{transform:rotate(0.8deg)}
+    }
+    @keyframes dropIn {
+      from{transform:translateY(-60px);opacity:0}
+      to{transform:translateY(0);opacity:1}
+    }
+    @keyframes pulseRing {
+      0%,100%{stroke-opacity:0.5;stroke-width:2}
+      50%{stroke-opacity:1;stroke-width:3}
+    }
+    .lanyard-group {
+      transform-origin: 165px 0px;
+      animation: dropIn 0.6s ease both, swing 2.5s ease 0.6s both;
+    }
+    .lanyard-group.sway {
+      animation: dropIn 0.6s ease both, swing 2.5s ease 0.6s forwards, gentleSway 4s ease-in-out 3.1s infinite;
+    }
+    .avatar-ring{animation:pulseRing 2s ease infinite}
+  </style>
+
+  <!-- Lanyard group with swing animation -->
+  <g class="lanyard-group sway">
+    <!-- Strap -->
+    <rect x="140" y="0" width="50" height="170" rx="4" fill="url(#strap)"/>
+    <text x="165" y="30" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="'Segoe UI',sans-serif" font-size="7" font-weight="600" letter-spacing="2">MARYAM-CODES</text>
+    <text x="165" y="50" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="'Segoe UI',sans-serif" font-size="7" font-weight="600" letter-spacing="2">MARYAM-CODES</text>
+    <text x="165" y="70" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="'Segoe UI',sans-serif" font-size="7" font-weight="600" letter-spacing="2">MARYAM-CODES</text>
+    <text x="165" y="90" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="'Segoe UI',sans-serif" font-size="7" font-weight="600" letter-spacing="2">MARYAM-CODES</text>
+    <text x="165" y="110" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="'Segoe UI',sans-serif" font-size="7" font-weight="600" letter-spacing="2">MARYAM-CODES</text>
+    <text x="165" y="130" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="'Segoe UI',sans-serif" font-size="7" font-weight="600" letter-spacing="2">MARYAM-CODES</text>
+    <text x="165" y="150" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="'Segoe UI',sans-serif" font-size="7" font-weight="600" letter-spacing="2">MARYAM-CODES</text>
+
+    <!-- Metal clasp -->
+    <rect x="148" y="160" width="34" height="14" rx="3" fill="#9ca3af" stroke="#6b7280" stroke-width="1"/>
+    <rect x="153" y="163" width="24" height="8" rx="2" fill="#d1d5db"/>
+
+    <!-- Ring -->
+    <circle cx="165" cy="185" r="10" fill="none" stroke="#9ca3af" stroke-width="3"/>
+    <circle cx="165" cy="185" r="7" fill="none" stroke="#d1d5db" stroke-width="1"/>
+
+    <!-- ID Card -->
+    <rect x="55" y="200" width="220" height="300" rx="14" fill="url(#cardGrad)" stroke="#8b5cf6" stroke-width="1.5" stroke-opacity="0.5"/>
+    <!-- Holographic shine overlay -->
+    <rect x="55" y="200" width="220" height="300" rx="14" fill="url(#holoShine)"/>
+
+    <!-- Card top accent line -->
+    <rect x="55" y="200" width="220" height="4" rx="2" fill="url(#avatarGlow)" opacity="0.8"/>
+
+    <!-- Avatar circle placeholder -->
+    <circle cx="165" cy="270" r="44" fill="none" stroke="url(#avatarGlow)" stroke-width="2.5" class="avatar-ring" filter="url(#glow)"/>
+    <circle cx="165" cy="270" r="40" fill="#2d1b4e"/>
+    <!-- Placeholder silhouette -->
+    <circle cx="165" cy="258" r="14" fill="#8b5cf6" opacity="0.4"/>
+    <ellipse cx="165" cy="295" rx="22" ry="16" fill="#8b5cf6" opacity="0.3"/>
+    <text x="165" y="275" text-anchor="middle" fill="#c084fc" font-family="'Segoe UI',sans-serif" font-size="9" opacity="0.7">YOUR</text>
+    <text x="165" y="287" text-anchor="middle" fill="#c084fc" font-family="'Segoe UI',sans-serif" font-size="9" opacity="0.7">PHOTO</text>
+
+    <!-- Name -->
+    <text x="165" y="335" text-anchor="middle" fill="#f0e6ff" font-family="'Segoe UI',sans-serif" font-weight="700" font-size="20">Maryam Ijaz</text>
+
+    <!-- Role -->
+    <text x="165" y="358" text-anchor="middle" fill="#c084fc" font-family="'Segoe UI',sans-serif" font-weight="500" font-size="12">AI Automation Engineer</text>
+
+    <!-- Handle -->
+    <text x="165" y="378" text-anchor="middle" fill="#b794d4" font-family="'Courier New',monospace" font-size="11">@Maryam-Codes</text>
+
+    <!-- Divider line -->
+    <line x1="80" y1="392" x2="250" y2="392" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.4"/>
+
+    <!-- Skills mini tags -->
+    <rect x="80" y="400" width="40" height="16" rx="8" fill="#8b5cf6" fill-opacity="0.2" stroke="#8b5cf6" stroke-width="0.5" stroke-opacity="0.4"/>
+    <text x="100" y="412" text-anchor="middle" fill="#c084fc" font-family="'Segoe UI',sans-serif" font-size="8">n8n</text>
+    <rect x="126" y="400" width="50" height="16" rx="8" fill="#e879f9" fill-opacity="0.2" stroke="#e879f9" stroke-width="0.5" stroke-opacity="0.4"/>
+    <text x="151" y="412" text-anchor="middle" fill="#e879f9" font-family="'Segoe UI',sans-serif" font-size="8">Python</text>
+    <rect x="182" y="400" width="48" height="16" rx="8" fill="#c084fc" fill-opacity="0.2" stroke="#c084fc" stroke-width="0.5" stroke-opacity="0.4"/>
+    <text x="206" y="412" text-anchor="middle" fill="#d8b4fe" font-family="'Segoe UI',sans-serif" font-size="8">OpenAI</text>
+
+    <!-- Barcode -->
+    <g transform="translate(100,430)">
+      <rect x="0" y="0" width="2" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="5" y="0" width="1" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="8" y="0" width="3" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="14" y="0" width="1" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="17" y="0" width="2" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="22" y="0" width="1" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="25" y="0" width="3" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="30" y="0" width="2" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="35" y="0" width="1" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="38" y="0" width="2" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="43" y="0" width="3" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="48" y="0" width="1" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="51" y="0" width="2" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="56" y="0" width="1" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="59" y="0" width="3" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="64" y="0" width="2" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="68" y="0" width="1" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="72" y="0" width="2" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="77" y="0" width="3" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="82" y="0" width="1" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="86" y="0" width="2" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="90" y="0" width="1" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="93" y="0" width="3" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="98" y="0" width="2" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="103" y="0" width="1" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="107" y="0" width="2" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="112" y="0" width="3" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="118" y="0" width="1" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="122" y="0" width="2" height="25" fill="#c084fc" opacity="0.6"/>
+      <rect x="127" y="0" width="1" height="25" fill="#c084fc" opacity="0.6"/>
+    </g>
+    <text x="165" y="470" text-anchor="middle" fill="#b794d4" font-family="'Courier New',monospace" font-size="8" letter-spacing="3">MC-2025-AI-ENG</text>
+
+    <!-- Card bottom accent -->
+    <rect x="55" y="486" width="220" height="14" rx="0 0 14 14" fill="url(#avatarGlow)" opacity="0.15"/>
+  </g>
+</svg>
