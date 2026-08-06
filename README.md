@@ -39,30 +39,6 @@
 </tr>
 </table>
 
-<br/>
-
-<div align="center">
-
-### 📊 GitHub Stats & Graphs
-
-<img src="./stats.svg?v=1" alt="GitHub Stats" height="185"/>
-<img src="./langs.svg?v=1" alt="Top Languages" height="185"/>
-
-<br/><br/>
-
-<img src="https://streak-stats.demolab.com?user=Maryam-Codes&theme=radical&hide_border=true&background=170e28&ring=c084fc&fire=e879f9&currStreakLabel=c084fc" alt="GitHub Streak"/>
-
-<br/><br/>
-
-<!-- 📈 Contribution Activity Graph -->
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Maryam-Codes&bg_color=170e28&color=c084fc&line=8b5cf6&point=e879f9&area=true&area_color=8b5cf6&hide_border=true&custom_title=Contribution%20Graph%20💜" alt="Contribution graph" width="95%"/>
-
-<br/><br/>
-
-<!-- 🏆 Trophies -->
-<img src="./trophies.svg?v=1" alt="Trophies" width="95%"/>
-
-<br/><br/>
 
 ### 🐍 Watch the snake eat my contributions
 
