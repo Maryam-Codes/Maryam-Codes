@@ -27,7 +27,7 @@
 |:---|:---:|
 | [🤖 AI WhatsApp Chatbot](https://github.com/Maryam-Codes) | `n8n` `OpenAI` `Twilio` |
 | [⚡ Outbound Voice Calling Agent](https://github.com/Maryam-Codes/Outbount-AI-Voice-Calling-Agent) | `n8n` `Airtable` `APIs` |
-| [🧠 AI Lead Qualifier](https://github.com/Maryam-Codes) | `GPT-4` `n8n` `Webhooks` |
+| [🧠 Automated-AI-LinkedIn-Content-Graphic-Generator](https://github.com/Maryam-Codes/Automated-AI-LinkedIn-Content-Graphic-Generator) | `GPT-4` `n8n` `Webhooks` |
 | [🔗 API Integration Hub](https://github.com/Maryam-Codes) | `REST APIs` `Python` |
 | [🤖 AI Agent Builder](https://github.com/Maryam-Codes) | `LangChain` `Python` `RAG` |
 
