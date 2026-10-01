@@ -25,11 +25,11 @@
 <!-- REPOSITORY_LIST_START -->
 | 🤖 Project | 💻 Tech |
 |:---|:---:|
-| [🤖 AI WhatsApp Chatbot](https://github.com/Maryam-Codes) | `n8n` `OpenAI` `Twilio` |
-| [⚡ Outbound Voice Calling Agent](https://github.com/Maryam-Codes/Outbount-AI-Voice-Calling-Agent) | `n8n` `Airtable` `APIs` |
-| [🧠 Automated-AI-LinkedIn-Content-Graphic-Generator](https://github.com/Maryam-Codes/Automated-AI-LinkedIn-Content-Graphic-Generator) | `GPT-4` `n8n` `Webhooks` |
-| [🔗 API Integration Hub](https://github.com/Maryam-Codes) | `REST APIs` `Python` |
-| [🤖 AI Agent Builder](https://github.com/Maryam-Codes) | `LangChain` `Python` `RAG` |
+| [🤖 Google Maps Scrapper](https://github.com/Maryam-Codes/Google-Maps-Scrapper-) | `Python` |
+| [🤖 Movie Recommender](https://github.com/Maryam-Codes/Movie-Recommender) | `Jupyter Notebook` |
+| [🤖 Ai Lead Scoring System](https://github.com/Maryam-Codes/AI-Lead-Scoring-System) | `Python` |
+| [🤖 Automated Ai Linkedin Content Graphic Generator](https://github.com/Maryam-Codes/Automated-AI-LinkedIn-Content-Graphic-Generator) | `Python / n8n` |
+| [🤖 Outbound Ai Voice Calling Agent](https://github.com/Maryam-Codes/Outbound-AI-Voice-Calling-Agent) | `Python / n8n` |
 <!-- REPOSITORY_LIST_END -->
 
 <br/>
