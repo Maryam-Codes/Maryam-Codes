@@ -30,7 +30,7 @@
 | [🤖 Ai Lead Scoring System](https://github.com/Maryam-Codes/AI-Lead-Scoring-System) | `Python` |
 | [🤖 Automated Ai Linkedin Content Graphic Generator](https://github.com/Maryam-Codes/Automated-AI-LinkedIn-Content-Graphic-Generator) | `Python / n8n` |
 | [🤖 Outbound Ai Voice Calling Agent](https://github.com/Maryam-Codes/Outbound-AI-Voice-Calling-Agent) | `Python / n8n` |
-| [🤖 Hijj](https://github.com/Maryam-Codes/hijj) | `Python / n8n` |
+| [🤖 Web Chatbot Agent](https://github.com/Maryam-Codes/Web-Chatbot-Agent) | `JavaScript` |
 | [🤖 Ai Voice Agent](https://github.com/Maryam-Codes/AI-Voice-Agent) | `Python` |
 | [🤖 Job_Recruitment](https://github.com/Maryam-Codes/job_recruitment) | `CSS` |
 <!-- REPOSITORY_LIST_END -->
