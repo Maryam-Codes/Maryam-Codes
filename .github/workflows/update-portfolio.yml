@@ -1,32 +1,29 @@
 name: Auto Update Profile README
 
-# 1. WHEN SHOULD THIS RUN? (Triggers)
 on:
   push:
     branches:
-      - main # Jab bhi main branch par push hoga, tab chalega
-  workflow_dispatch: # Button se Live trigger karne ke liye
+      - main
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
 
-    # GitHub Actions ko repository me write karne ki permission
     permissions:
       contents: write
 
     steps:
-      # Step 1: Download the repository code to the runner
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Step 2: Set up Python
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.x'
 
-      # Step 3: Fetch latest repos and update README
       - name: Fetch Latest Repos and Update README
         env:
           GITHUB_USERNAME: ${{ github.repository_owner }}
@@ -38,43 +35,62 @@ jobs:
           import re
 
           username = os.environ.get('GITHUB_USERNAME')
-          url = f"https://api.github.com/users/{username}/repos?sort=updated&per_page=5"
+          print(f"🔍 Fetching repos for user: {username}...")
+          
+          # Fetch top 10 most recently pushed public repos
+          url = f"https://api.github.com/users/{username}/repos?sort=pushed&direction=desc&per_page=10"
 
-          # Fetch public repos from GitHub API
           req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
           with urllib.request.urlopen(req) as response:
               repos = json.loads(response.read().decode())
 
-          # Format the repository list in Markdown
-          repo_lines = []
+          print(f"📦 Total repos fetched from API: {len(repos)}")
+
+          table_header = "| 🤖 Project | 💻 Primary Language | 📅 Last Updated |\n|:---|:---:|:---:|"
+          rows = []
+          count = 0
           for repo in repos:
-              if repo['name'] != username and not repo['fork']: # Skip profile repo and forks
+              # Skip profile repository and forks
+              if repo['name'].lower() != username.lower() and not repo['fork']:
                   name = repo['name'].replace('-', ' ').title()
-                  desc = repo['description'] or "Awesome project"
                   url = repo['html_url']
-                  repo_lines.append(f"- 🚀 **[{name}]({url})** — *{desc}*")
+                  lang = repo['language'] or "Python / AI"
+                  pushed_at = repo['pushed_at'].split("T")[0]
+                  rows.append(f"| [🤖 {name}]({url}) | `{lang}` | `{pushed_at}` |")
+                  print(f"  -> Added: {name} (Pushed: {pushed_at})")
+                  count += 1
+                  if count >= 5:
+                      break
 
-          new_content = "\n".join(repo_lines)
+          new_table = table_header + "\n" + "\n".join(rows)
 
-          # Read current README.md
+          # Read README.md
           with open("README.md", "r", encoding="utf-8") as f:
               content = f.read()
 
-          # Replace text between markers
-          pattern = r"(<!-- REPOSITORY_LIST_START -->)(.*?)(<!-- REPOSITORY_LIST_END -->)"
-          updated_content = re.sub(
-              pattern,
-              f"\\1\n{new_content}\n\\3",
-              content,
-              flags=re.DOTALL
-          )
+          start_marker = "<!-- REPOSITORY_LIST_START -->"
+          end_marker = "<!-- REPOSITORY_LIST_END -->"
 
-          # Save updated README.md
-          with open("README.md", "w", encoding="utf-8") as f:
-              f.write(updated_content)
+          if start_marker not in content or end_marker not in content:
+              print(f"❌ ERROR: Could not find '{start_marker}' or '{end_marker}' in README.md!")
+          else:
+              print("✅ Found markers in README.md! Replacing content...")
+              pattern = r"(<!-- REPOSITORY_LIST_START -->)(.*?)(<!-- REPOSITORY_LIST_END -->)"
+              updated_content = re.sub(
+                  pattern,
+                  f"\\1\n{new_table}\n\\3",
+                  content,
+                  flags=re.DOTALL
+              )
+
+              if updated_content == content:
+                  print("⚠️ No visual changes detected in README.md (content is already exact match).")
+              else:
+                  print("📝 Writing changes to README.md...")
+                  with open("README.md", "w", encoding="utf-8") as f:
+                      f.write(updated_content)
           EOF
 
-      # Step 4: Save and Commit the changes back to GitHub
       - name: Commit and Push changes
         run: |
           git config --global user.name "github-actions[bot]"
