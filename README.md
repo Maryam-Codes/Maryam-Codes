@@ -22,10 +22,7 @@
 <td width="62%" valign="middle">
 
 ### ⚡ My Automation Projects
-
 <!-- REPOSITORY_LIST_START -->
-| 🤖 Project | 💻 Tech |
-testing
 <!-- REPOSITORY_LIST_END -->
 
 <br/>
