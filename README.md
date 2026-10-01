@@ -30,7 +30,7 @@
 | [⚡ Outbound Voice Calling Agent](https://github.com/Maryam-Codes/Outbount-AI-Voice-Calling-Agent) | `n8n` `Airtable` `APIs` |
 | [🧠 Automated-AI-LinkedIn-Content-Graphic-Generator](https://github.com/Maryam-Codes/Automated-AI-LinkedIn-Content-Graphic-Generator) | `GPT-4` `n8n` `Webhooks` |
 | [🔗 API Integration Hub](https://github.com/Maryam-Codes) | `REST APIs` `Python` |
-| [🤖 AI Agent Builder](https://github.com/Maryam-Codes) | `LangChain` `Python` `RAG` |
+
 <!-- REPOSITORY_LIST_END -->
 
 <br/>
