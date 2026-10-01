@@ -35,10 +35,10 @@ jobs:
           import re
 
           username = os.environ.get('GITHUB_USERNAME')
-          print(f"🔍 Fetching repos for user: {username}...")
+          print(f"🔍 Fetching latest repos for user: {username}...")
           
-          # Fetch top 10 most recently pushed public repos
-          url = f"https://api.github.com/users/{username}/repos?sort=pushed&direction=desc&per_page=10"
+          # Fetch top 30 most recently pushed repos
+          url = f"https://api.github.com/users/{username}/repos?sort=pushed&direction=desc&per_page=30"
 
           req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
           with urllib.request.urlopen(req) as response:
@@ -46,18 +46,18 @@ jobs:
 
           print(f"📦 Total repos fetched from API: {len(repos)}")
 
-          table_header = "| 🤖 Project | 💻 Primary Language | 📅 Last Updated |\n|:---|:---:|:---:|"
+          table_header = "| 🤖 Project | 💻 Tech |\n|:---|:---:|"
           rows = []
           count = 0
+
           for repo in repos:
               # Skip profile repository and forks
               if repo['name'].lower() != username.lower() and not repo['fork']:
-                  name = repo['name'].replace('-', ' ').title()
+                  name = repo['name'].replace('-', ' ').strip().title()
                   url = repo['html_url']
-                  lang = repo['language'] or "Python / AI"
-                  pushed_at = repo['pushed_at'].split("T")[0]
-                  rows.append(f"| [🤖 {name}]({url}) | `{lang}` | `{pushed_at}` |")
-                  print(f"  -> Added: {name} (Pushed: {pushed_at})")
+                  lang = repo['language'] or "Python / n8n"
+                  rows.append(f"| [🤖 {name}]({url}) | `{lang}` |")
+                  print(f"  -> Added: {name} (Pushed: {repo.get('pushed_at')})")
                   count += 1
                   if count >= 5:
                       break
@@ -72,9 +72,9 @@ jobs:
           end_marker = "<!-- REPOSITORY_LIST_END -->"
 
           if start_marker not in content or end_marker not in content:
-              print(f"❌ ERROR: Could not find '{start_marker}' or '{end_marker}' in README.md!")
+              print(f"❌ ERROR: Could not find markers in README.md!")
           else:
-              print("✅ Found markers in README.md! Replacing content...")
+              print("✅ Found markers in README.md! Updating table...")
               pattern = r"(<!-- REPOSITORY_LIST_START -->)(.*?)(<!-- REPOSITORY_LIST_END -->)"
               updated_content = re.sub(
                   pattern,
@@ -84,9 +84,9 @@ jobs:
               )
 
               if updated_content == content:
-                  print("⚠️ No visual changes detected in README.md (content is already exact match).")
+                  print("⚠️ Content in README.md is already up to date.")
               else:
-                  print("📝 Writing changes to README.md...")
+                  print("📝 Writing new project table to README.md...")
                   with open("README.md", "w", encoding="utf-8") as f:
                       f.write(updated_content)
           EOF
