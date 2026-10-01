@@ -1,0 +1,84 @@
+name: Auto Update Profile README
+
+# 1. WHEN SHOULD THIS RUN? (Triggers)
+on:
+  push:
+    branches:
+      - main # Jab bhi main branch par push hoga, tab chalega
+  workflow_dispatch: # Button se Live trigger karne ke liye
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    # GitHub Actions ko repository me write karne ki permission
+    permissions:
+      contents: write
+
+    steps:
+      # Step 1: Download the repository code to the runner
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      # Step 3: Fetch latest repos and update README
+      - name: Fetch Latest Repos and Update README
+        env:
+          GITHUB_USERNAME: ${{ github.repository_owner }}
+        run: |
+          python - << 'EOF'
+          import urllib.request
+          import json
+          import os
+          import re
+
+          username = os.environ.get('GITHUB_USERNAME')
+          url = f"https://api.github.com/users/{username}/repos?sort=updated&per_page=5"
+
+          # Fetch public repos from GitHub API
+          req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+          with urllib.request.urlopen(req) as response:
+              repos = json.loads(response.read().decode())
+
+          # Format the repository list in Markdown
+          repo_lines = []
+          for repo in repos:
+              if repo['name'] != username and not repo['fork']: # Skip profile repo and forks
+                  name = repo['name'].replace('-', ' ').title()
+                  desc = repo['description'] or "Awesome project"
+                  url = repo['html_url']
+                  repo_lines.append(f"- 🚀 **[{name}]({url})** — *{desc}*")
+
+          new_content = "\n".join(repo_lines)
+
+          # Read current README.md
+          with open("README.md", "r", encoding="utf-8") as f:
+              content = f.read()
+
+          # Replace text between markers
+          pattern = r"(<!-- REPOSITORY_LIST_START -->)(.*?)(<!-- REPOSITORY_LIST_END -->)"
+          updated_content = re.sub(
+              pattern,
+              f"\\1\n{new_content}\n\\3",
+              content,
+              flags=re.DOTALL
+          )
+
+          # Save updated README.md
+          with open("README.md", "w", encoding="utf-8") as f:
+              f.write(updated_content)
+          EOF
+
+      # Step 4: Save and Commit the changes back to GitHub
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --quiet || git commit -m "chore: auto-update portfolio projects [skip ci]"
+          git push
