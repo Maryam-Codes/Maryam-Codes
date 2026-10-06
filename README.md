@@ -55,7 +55,7 @@
 <a href="mailto:maryamijazrana@gmail.com"><img src="https://img.shields.io/badge/Email-c084fc?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
 <a href="https://github.com/Maryam-Codes"><img src="https://img.shields.io/badge/GitHub-8b5cf6?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
 <a href="https://www.linkedin.com/in/maryam-ijaz-689930282"><img src="https://img.shields.io/badge/LinkedIn-e879f9?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-<a href="https://myportfolio-khaki-nu-72.vercel.app"><img src="https://img.shields.io/badge/Portfolio-d8b4fe?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio"/></a>
+<a href="[https://myportfolio-khaki-nu-72.vercel.app](https://myportfolio-4-u-72.vercel.app/)"><img src="https://img.shields.io/badge/Portfolio-d8b4fe?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio"/></a>
 
 <br/><br/>
 
